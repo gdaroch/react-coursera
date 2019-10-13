@@ -20,7 +20,7 @@ const Menu = (props) => {
       <RenderMenuItem dish={dish} onClick={props.onClick} />
     );
   });
-  
+
   return(
     <div className="row">
       {menu}

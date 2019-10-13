@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 function RenderDish({dish}){
   if (dish != null) {
     return(
-      <React.Fragment>
+      <>
         <div className="col-12 col-md-5 m-1"  id={dish.id}>
           <Card>
             <CardImg top src={dish.image} alt={dish.name} />
@@ -22,7 +22,7 @@ function RenderDish({dish}){
         :
         <div></div>
         }
-      </React.Fragment>
+      </>
     );
   } else {
     return(
