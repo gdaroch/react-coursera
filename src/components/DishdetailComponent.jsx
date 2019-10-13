@@ -36,10 +36,12 @@ class DishDetail extends Component {
   renderComments(comments) {
     const commentsList = comments.map((comment) => {
       return (
-        <ul className="list-unstyled" key={comment.id}>
-          <li>{comment.comment}</li>
-          <li>-- {comment.author}, {comment.date}</li>
-        </ul>
+        <div className="container">
+          <ul className="list-unstyled" key={comment.id}>
+            <li>{comment.comment}</li>
+            <li>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
+          </ul>
+        </div>
       );
     });
 
