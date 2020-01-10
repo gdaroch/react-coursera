@@ -13,7 +13,8 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values){
-    alert('Comments: ' + JSON.stringify(values));
+    this.props.onToggleModal();
+    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
   render(){
@@ -135,6 +136,8 @@ class RenderComments extends Component {
           <CommentForm
             onToggleModal={this.handleToggleModal}
             showModal={this.state.showModal}
+            dishId={this.props.dishId}
+            addComment={this.props.addComment}
           />
         </div>
       );
@@ -162,7 +165,11 @@ const DishDetail = (props) => {
       </div>
       <div className="row">
         <RenderDish dish={props.dish} />
-        <RenderComments comments={props.comments} />
+        <RenderComments
+          comments={props.comments}
+          addComment={props.addComment}
+          dishId={props.dish.id}
+        />
       </div>
     </div>
   );
