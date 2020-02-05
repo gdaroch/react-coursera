@@ -6,7 +6,10 @@ function Home(props) {
     <div className="container">
         <div className="row align-items-start">
             <div className="col-12 col-md m-1">
-                <RenderCard item={props.dish} />
+                <RenderCard item={props.dish}
+                            isLoading={props.dishesLoading}
+                            dishesErrMess={props.dishesErrMess}
+                />
             </div>
             <div className="col-12 col-md m-1">
                 <RenderCard item={props.promotion} />
