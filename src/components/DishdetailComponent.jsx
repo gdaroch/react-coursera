@@ -12,7 +12,7 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 class CommentForm extends Component {
   handleSubmit(values){
     this.props.onToggleModal();
-    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
   render(){
@@ -135,7 +135,7 @@ class RenderComments extends Component {
             onToggleModal={this.handleToggleModal}
             showModal={this.state.showModal}
             dishId={this.props.dishId}
-            addComment={this.props.addComment}
+            postComment={this.props.postComment}
           />
         </div>
       );
@@ -182,7 +182,7 @@ const DishDetail = (props) => {
           <RenderDish dish={props.dish} />
           <RenderComments
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}
           />
         </div>
